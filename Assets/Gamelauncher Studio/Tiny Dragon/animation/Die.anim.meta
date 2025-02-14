@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f00e3e7457fc45f683e306e65bd80a87
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 310677
+  packageName: A Tiny Dragon 2D Animated Character (Spriter)
+  packageVersion: 1.0.0.1
+  assetPath: Assets/Gamelauncher Studio/Tiny Dragon/animation/Die.anim
+  uploadId: 731571

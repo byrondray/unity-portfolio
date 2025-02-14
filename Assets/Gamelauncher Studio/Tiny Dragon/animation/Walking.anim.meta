@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d022ca7496be49da89c334da4b214c48
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 310677
+  packageName: A Tiny Dragon 2D Animated Character (Spriter)
+  packageVersion: 1.0.0.1
+  assetPath: Assets/Gamelauncher Studio/Tiny Dragon/animation/Walking.anim
+  uploadId: 731571

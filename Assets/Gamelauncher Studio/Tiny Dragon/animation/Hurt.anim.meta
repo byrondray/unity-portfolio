@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 63792fefe4ab4e2ca14db8aa9417ffe6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 310677
+  packageName: A Tiny Dragon 2D Animated Character (Spriter)
+  packageVersion: 1.0.0.1
+  assetPath: Assets/Gamelauncher Studio/Tiny Dragon/animation/Hurt.anim
+  uploadId: 731571
