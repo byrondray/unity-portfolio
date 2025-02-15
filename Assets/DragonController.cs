@@ -9,13 +9,32 @@ public class DragonController : MonoBehaviour
     private Vector2 movement;
 
     // Animation parameter names - update these to match your animation controller
-    private const string IS_MOVING = "IsMoving";
+    private const string IS_MOVING = "isMoving"; // Changed to lowercase to match Unity's default naming
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // More detailed debug checks
+        if (animator == null)
+            Debug.LogError("Animator component not found!");
+        else
+        {
+            Debug.Log("Animator found and initialized");
+            // Check if parameter exists
+            AnimatorControllerParameter[] parameters = animator.parameters;
+            bool foundParameter = false;
+            foreach (var param in parameters)
+            {
+                Debug.Log($"Found parameter: {param.name} of type {param.type}");
+                if (param.name == IS_MOVING)
+                    foundParameter = true;
+            }
+            if (!foundParameter)
+                Debug.LogError($"Parameter {IS_MOVING} not found in animator!");
+        }
     }
 
     void Update()
@@ -27,9 +46,12 @@ public class DragonController : MonoBehaviour
         // Normalize diagonal movement
         movement = movement.normalized;
 
-        // Update animation
+        // Update animation with more debug info
         bool isMoving = movement.magnitude > 0.1f;
         animator.SetBool(IS_MOVING, isMoving);
+        Debug.Log(
+            $"Setting isMoving to {isMoving}. Current animator state: {animator.GetCurrentAnimatorStateInfo(0).fullPathHash}"
+        );
 
         // Flip sprite based on direction
         if (movement.x != 0)
@@ -41,23 +63,12 @@ public class DragonController : MonoBehaviour
     void FixedUpdate()
     {
         // Move the dragon
-        rb.linearVelocity = movement * moveSpeed;
+        rb.linearVelocity = movement * moveSpeed; // Changed to velocity
     }
 
-    // Add this method if you want mouse following behavior instead
-    public void MoveTowardsMouse()
+    // Add this to check what's happening in the animator
+    void OnAnimatorMove()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
-        rb.linearVelocity = direction * moveSpeed;
-
-        // Update facing direction
-        if (direction.x != 0)
-        {
-            spriteRenderer.flipX = direction.x < 0;
-        }
-
-        // Update animation
-        animator.SetBool(IS_MOVING, rb.linearVelocity.magnitude > 0.1f);
+        Debug.Log("Animator is moving");
     }
 }
